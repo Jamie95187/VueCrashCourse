@@ -17,8 +17,8 @@
       }
     },
     methods: {
-      addTodo() {
-        console.log("HENLO");
+      addTodo(e) {
+        e.preventDefault();
         const newTodo = {
           id: uuidv4(),
           title: this.title,
@@ -26,6 +26,9 @@
         }
         // Send up to parent
         this.$emit('add-todo', newTodo);
+
+        // Clears form after submitting
+        this.title = '';
       }
     }
   }
